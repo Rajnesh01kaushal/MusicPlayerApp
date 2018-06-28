@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SevicesAndroid</string>
+    <string name="play">PLAY</string>
+    <string name="pause">PAUSE</string>
+    <string name="stop">STOP</string>
+    <string name="todo">TODO</string>
+</resources>
