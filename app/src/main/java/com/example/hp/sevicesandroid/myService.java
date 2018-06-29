@@ -21,9 +21,8 @@ public class myService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        Toast.makeText(this, "media player are start the song", Toast.LENGTH_SHORT).show();
-
         mediaPlayer = MediaPlayer.create(this, R.raw.excuses);
+
         mediaPlayer.setLooping(true);
         }
 

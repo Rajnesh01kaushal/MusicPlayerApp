@@ -9,7 +9,7 @@ public class CustomReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        if (intent.getAction().equals("play"))
+        if (intent.getAction().equals(""))
         Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
     }
 }

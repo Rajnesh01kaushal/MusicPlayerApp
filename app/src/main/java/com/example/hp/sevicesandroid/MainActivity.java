@@ -9,7 +9,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button play,pause,stop;
-
+    String order =null;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 startService(new Intent(MainActivity.this, myService.class));
+                order = "play";
+
             }
         });
 
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,myService.class);
-                String order = "pause";
+                order = "pause";
                 intent.putExtra("order",order);
                 play.setText("Resume");
                 startService(intent);
