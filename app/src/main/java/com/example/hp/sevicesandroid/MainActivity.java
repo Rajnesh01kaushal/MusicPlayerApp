@@ -24,8 +24,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startService(new Intent(MainActivity.this, myService.class));
+                Intent intent = new Intent(MainActivity.this, myService.class);
                 order = "play";
+                intent.putExtra("order",order);
+                play.setText("Resume");
+                startService(intent);
+
+                play.setEnabled(false);
+                pause.setEnabled(true);
+                stop.setEnabled(true);
 
             }
         });
@@ -38,9 +45,25 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("order",order);
                 play.setText("Resume");
                 startService(intent);
+
+                pause.setEnabled(false);
+                stop.setEnabled(true);
+                play.setEnabled(true);
+            }
+        });
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(MainActivity.this,myService.class);
+                order ="pause";
+                intent.putExtra("order",order);
+                startService(intent);
+
+                pause.setEnabled(false);
+                stop.setEnabled(true);
+                play.setEnabled(true);
             }
         });
 
-        stop.setOnClickListener((View.OnClickListener) new Intent(MainActivity.this, myService.class));
     }
 }

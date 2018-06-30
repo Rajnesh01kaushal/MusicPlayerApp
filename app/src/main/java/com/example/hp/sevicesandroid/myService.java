@@ -10,6 +10,7 @@ import android.widget.Toast;
 public class myService extends Service {
 
     MediaPlayer mediaPlayer;
+    int playPosition;
 
     @Nullable
     @Override
@@ -27,7 +28,7 @@ public class myService extends Service {
         }
 
     @Override
-    public int onStartCommand(Intent intent, int cur_position, int startId) {
+    public int onStartCommand(Intent intent, int flag, int startId) {
         
         super.onStart(intent,startId);
 
@@ -38,12 +39,12 @@ public class myService extends Service {
         }
         else
             if (intent.getStringExtra("order").equals("pause")) {
-            cur_position =mediaPlayer.getCurrentPosition();
+            playPosition =mediaPlayer.getCurrentPosition();
             mediaPlayer.pause();
             }
             else
                 if (intent.getStringExtra("order").equalsIgnoreCase("resume")) {
-            mediaPlayer.seekTo(cur_position);
+            mediaPlayer.seekTo(playPosition);
             mediaPlayer.start();
                 }
         Toast.makeText(this, "resume the song", Toast.LENGTH_SHORT).show();
